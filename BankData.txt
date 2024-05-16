@@ -9,3 +9,4 @@ Username: Momo, Age: 20, Gender: Female, Email: dwd@wd.com, Password: B7Q2ccedyY
 Username: marmar, Age: 21, Gender: Female, Email: mar@gmaail.com, Password: L6RrnT8RiBfq, Balance: R2300.00
 Username: vuyo, Age: 25, Gender: Male, Email: vuyo@g.com, Password: g9SqO02ukaHZ, Balance: R0.00
 Username: momo, Age: 25, Gender: Female, Email: wdwd@vh.com, Password: yviHH6E3EeGM, Balance: R1250.00
+Username: Someone, Age: 25, Gender: Male, Email: c@vhv.com, Password: AWIFTJJBMrgT, Balance: R147.00
