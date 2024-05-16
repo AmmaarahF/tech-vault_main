@@ -71,8 +71,17 @@ class BankingApp:
         self.entry_password_login = tk.Entry(self.master, show="*")
         self.entry_password_login.grid(row=2, column=1)
 
+        self.show_password_var = tk.BooleanVar()
+        self.show_password_checkbox = tk.Checkbutton(self.master, text="Show Password", variable=self.show_password_var, command=self.toggle_password_visibility)
+        self.show_password_checkbox.grid(row=3, columnspan=2, pady=5)
+
         self.login_button = tk.Button(self.master, text="Login", command=self.login_user)
-        self.login_button.grid(row=3, column=0, columnspan=2, pady=10)
+        self.login_button.grid(row=4, column=0, columnspan=2, pady=10)
+    
+    def toggle_password_visibility(self):
+        show_password = self.show_password_var.get()
+        self.entry_password_login.config(show="" if show_password else "*")    
+ 
 
     def register_user(self):
         username = self.entry_username.get()
@@ -90,13 +99,14 @@ class BankingApp:
         if not re.match(r"[^@]+@[^@]+\.[^@]+", email):
             messagebox.showerror("Invalid Input", "Invalid email format.")
             return
-
+        
+        account_number = ''.join(random.choices(string.digits, k=8))
         password = ''.join(random.choices(string.ascii_letters + string.digits, k=12))
 
         with open("BankData.txt", "a") as file:
-            file.write(f"Username: {username}, Age: {age}, Gender: {gender}, Email: {email}, Password: {password}, Balance: R0.00\n")
+            file.write(f"Username: {username}, Age: {age}, Gender: {gender}, Email: {email}, Account Number: {account_number}, Password: {password}, Balance: R0.00\n")
 
-        alert_msg = f"Registration Successful!\n\nUsername: {username}\nAge: {age}\nGender: {gender}\nEmail: {email}\nPassword: {password}"
+        alert_msg = f"Registration Successful!\n\nUsername: {username}\nAge: {age}\nGender: {gender}\nEmail: {email}\n Account Number: {account_number}\nPassword: {password}"
         messagebox.showinfo("Registration Successful", alert_msg)
 
         self.entry_username.delete(0, tk.END)
@@ -111,6 +121,11 @@ class BankingApp:
     def login_user(self):
         username = self.entry_username_login.get()
         password = self.entry_password_login.get()
+
+        if self.show_password_var.get(): #check if the password should be shown
+            messagebox.showinfo("Password", f"Your password is: {password}")
+            return
+
 
         with open("BankData.txt", "r") as file:
             for line in file:
