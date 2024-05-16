@@ -1,0 +1,7 @@
+
+Username: Marah, Age: 23, Gender: Female, Email: marah@gmail.com, Password: 4oEJfb2o23Of, Balance: R800.00
+
+Username: Ayanda, Age: 29, Gender: Male, Email: A@gmail.com, Password: RAtpmpG1vuaZ, Balance: R850.00
+
+Username: momo, Age: 28, Gender: Female, Email: fc@uhu.com, Password: FefWnKpURbpo, Balance: R120.00
+
