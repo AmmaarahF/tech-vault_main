@@ -100,7 +100,8 @@ class BankingApp:
             return
         
         account_number = ''.join(random.choices(string.digits, k=8))
-        password = ''.join(random.choices(string.ascii_letters + string.digits, k=12))
+        special_characters = '!@#$%^&*()_+{}[]|\\;:\<>?'
+        password = ''.join(random.choices(string.ascii_letters + string.digits + special_characters, k=12))
 
         with open("BankData.txt", "a") as file:
             file.write(f"Username: {username}, Age: {age}, Gender: {gender}, Email: {email}, Account Number: {account_number} Password: {password}, Balance: R0.00\n")

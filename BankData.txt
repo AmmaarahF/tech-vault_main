@@ -12,3 +12,8 @@ Username: momo, Age: 25, Gender: Female, Email: wdwd@vh.com, Password: yviHH6E3E
 Username: Someone, Age: 25, Gender: Male, Email: c@vhv.com, Password: AWIFTJJBMrgT, Balance: R147.00
 Username: momo, Age: 25, Gender: Female, Email: wdwd@vh.com, Password: yviHH6E3EeGM, Balance: R1470.00
 Username: Vuyo, Age: 26, Gender: Male, Email: Vuyolwethu.Kalolo@capaciti.org, Account Number: 13403948, Password: MYQ9UcLaoPWS, Balance: R0.00
+Username: Siba, Age: 25, Gender: Female, Email: rc@gvg.com, Password: 02407784 Password, Balance: R250.00
+, Balance: R0.00
+Username: Lulu, Age: 24, Gender: Female, Email: vhgv@h.com, Account Number: 20243178 Password: 37mA,h`Bi`37, Balance: R0.00
+Username: Ayan, Age: 26, Gender: Male, Email: hgch@jbk.com, Password: 88376070 Password, Balance: R370.00
+, Balance: R0.00
