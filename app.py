@@ -14,40 +14,55 @@ class BankingApp:
         self.create_registration_gui()
 
     def create_registration_gui(self):
-        heading = tk.Label(self.master, text="Welcome to TechVault\nYour #1 banking app", bg='teal', fg='white', font=("Arial", 16, "underline"))
+        heading = tk.Label(self.master, text="Welcome to TechVault\nYour #1 banking app", bg='teal', fg='white',
+                           font=("Arial", 16, "underline"))
         heading.grid(row=0, column=0, columnspan=3, pady=(10, 20))
 
         self.label_username = tk.Label(self.master, text="Username:", bg='teal', fg='white', font=("Arial", 12))
-        self.label_username.grid(row=1, column=0, padx=80, pady=10)
+        self.label_username.grid(row=1, column=0, padx=10, pady=10, sticky='e')
         self.entry_username = tk.Entry(self.master)
-        self.entry_username.grid(row=1, column=1)
+        self.entry_username.grid(row=1, column=1, sticky='w')
 
         self.label_age = tk.Label(self.master, text="Age:", bg='teal', fg='white', font=("Arial", 12))
-        self.label_age.grid(row=2, column=0, padx=10, pady=10)
+        self.label_age.grid(row=2, column=0, padx=10, pady=10, sticky='e')
         self.entry_age = tk.Entry(self.master)
-        self.entry_age.grid(row=2, column=1)
+        self.entry_age.grid(row=2, column=1, sticky='w')
 
         self.label_gender = tk.Label(self.master, text="Gender:", bg='teal', fg='white', font=("Arial", 12))
-        self.label_gender.grid(row=3, column=0, padx=10, pady=10)
+        self.label_gender.grid(row=3, column=0, padx=10, pady=10, sticky='e')
+
+        # Create a frame to hold the radio buttons
+        gender_frame = tk.Frame(self.master, bg='teal')
+        gender_frame.grid(row=3, column=1, columnspan=2, sticky='w')
+
         self.gender_var = tk.StringVar()
         self.gender_var.set("Male")
-        self.radio_male = tk.Radiobutton(self.master, text="Male", variable=self.gender_var, value="Male", bg='teal',
+        self.radio_male = tk.Radiobutton(gender_frame, text="Male", variable=self.gender_var, value="Male", bg='teal',
                                          fg='black')
-        self.radio_male.grid(row=3, column=1)
-        self.radio_female = tk.Radiobutton(self.master, text="Female", variable=self.gender_var, value="Female",
+        self.radio_male.pack(side='left')
+        self.radio_female = tk.Radiobutton(gender_frame, text="Female", variable=self.gender_var, value="Female",
                                            bg='teal', fg='black')
-        self.radio_female.grid(row=3, column=2)
+        self.radio_female.pack(side='left', padx=(10, 0))
 
         self.label_email = tk.Label(self.master, text="Email:", bg='teal', fg='white', font=("Arial", 12))
-        self.label_email.grid(row=4, column=0, padx=10, pady=10)
+        self.label_email.grid(row=4, column=0, padx=10, pady=10, sticky='e')
         self.entry_email = tk.Entry(self.master)
-        self.entry_email.grid(row=4, column=1)
+        self.entry_email.grid(row=4, column=1, sticky='w')
 
-        self.register_button = tk.Button(self.master, text="Register", command=self.register_user)
-        self.register_button.grid(row=5, column=0, columnspan=3, pady=10)
+        # Create a frame to hold the buttons
+        button_frame = tk.Frame(self.master, bg='teal')
+        button_frame.grid(row=5, column=0, columnspan=3, pady=10)
 
-        self.login_button = tk.Button(self.master, text="Login", command=self.show_login_gui)
-        self.login_button.grid(row=6, column=0, columnspan=3, pady=5)
+        self.register_button = tk.Button(button_frame, text="Register", command=self.register_user)
+        self.register_button.pack(side='left', padx=10)
+
+        self.login_button = tk.Button(button_frame, text="Login", command=self.show_login_gui)
+        self.login_button.pack(side='left', padx=10)
+
+        # Adjust columnspan and column configurations for better alignment
+        self.master.grid_columnconfigure(0, weight=1)
+        self.master.grid_columnconfigure(1, weight=1)
+        self.master.grid_columnconfigure(2, weight=1)
 
     def show_login_gui(self):
         self.create_login_gui()
@@ -137,13 +152,18 @@ class BankingApp:
 
         self.master.configure(bg='teal')
 
-        self.label_balance = tk.Label(self.master, text=f"Balance: R{self.balance:.2f}", bg='teal', fg='white', font=("Arial", 12))
-        self.label_balance.grid(row=0, column=0, padx=100, pady=10)
+        self.label_balance = tk.Label(self.master, text=f"Balance: R{self.balance:.2f}", bg='teal', fg='white',
+                                      font=("Arial", 12))
+        self.label_balance.grid(row=0, column=0, columnspan=2, pady=10)
 
-        self.transaction_button = tk.Button(self.master, text="Make a Transaction", command=self.prompt_transaction)
+        button_width = 20  # Set a fixed width for buttons
+
+        self.transaction_button = tk.Button(self.master, text="Make a Transaction", command=self.prompt_transaction,
+                                            width=button_width)
         self.transaction_button.grid(row=1, column=0, columnspan=2, padx=100, pady=10)
 
-        self.bank_statement_button = tk.Button(self.master, text="Bank Statement", command=self.show_bank_statement)
+        self.bank_statement_button = tk.Button(self.master, text="Bank Statement", command=self.show_bank_statement,
+                                               width=button_width)
         self.bank_statement_button.grid(row=2, column=0, columnspan=2, padx=100, pady=10)
 
     def prompt_transaction(self):
