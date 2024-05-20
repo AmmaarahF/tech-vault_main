@@ -13,11 +13,12 @@ Username: Siba, Age: 25, Gender: Female, Email: rc@gvg.com, Password: 02407784 P
 Username: Lulu, Age: 24, Gender: Female, Email: vhgv@h.com, Account Number: 20243178 Password: 37mA,h`Bi`37, Balance: R0.00
 Username: Ayan, Age: 26, Gender: Male, Email: hgch@jbk.com, Password: 88376070 Password, Balance: R370.00
 , Balance: R0.00
-Username: Fieka, Age: 17, Gender: Female, Email: sw@dx.com, Account Number: 87319234, Password: n5\1656]PT(f, Balance: R5845.00
+Username: Fieka, Age: 17, Gender: Female, Email: sw@dx.com, Account Number: 87319234, Password: n5\1656]PT(f, Balance: R6145.00
 Username: Immo, Age: 55, Gender: Male, Email: d@vg.com, Account Number: 19135592, Password: 6mAGl*t\HN9>, Balance: R480.00
-Username: Fieka, Age: 12, Gender: Female, Email: vghv@cfvgb.com, Account Number: 32542118, Password: @79Q?WK8QjQa, Balance: R0.00
+Username: Fieka, Age: 12, Gender: Female, Email: vghv@cfvgb.com, Account Number: 32542118, Password: @79Q?WK8QjQa, Balance: R5645.00
 Username: Dilly, Age: 25, Gender: Female, Email: dilly@gmail.com, Account Number: 73057718, Password: xqg}N?)\cNz0, Balance: R50225.00
 Username: Vuyo, Age: 25, Gender: Male, Email: vuyo@hgj.com, Account Number: 58299377, Password: fBFK:U:B\bvG, Balance: R0.00
 Username: Dil, Age: 26, Gender: Female, Email: sef@ygy.com, Account Number: 27227900, Password: T1(S4cMdsmU6, Balance: R500.00
 Username: some, Age: 21, Gender: Male, Email: cdc@tv.com, Account Number: 00624348, Password: +Pz|Mj$>sJ4K, Balance: R300.00
 Username: idk, Age: 20, Gender: Male, Email: cgfc@rdc.com, Account Number: 11880278, Password: kBoF{&Whnw@Z, Balance: R180.0
+Username: hb, Age: 2, Gender: Male, Email: hgjhg@tfg.com, Account Number: 18126604, Password: M(%q1JVd{]OL, Balance: R0.00

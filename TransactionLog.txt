@@ -50,3 +50,5 @@ Username: Immo, 2024-05-17 11:15:31.705952: Deposit of R500.00
 Username: Immo, 2024-05-17 11:15:49.244573: Withdrawal of R20.00
 Username: Dilly, 2024-05-17 13:09:38.017319: Deposit of R50225.00
 Username: Dilly, 2024-05-17 14:08:54.540138: Withdrawal of R200.00
+Username: Fieka, 2024-05-19 20:25:38.597551: Deposit of R100.00
+Username: Fieka, 2024-05-19 20:26:03.628665: Deposit of R400.00

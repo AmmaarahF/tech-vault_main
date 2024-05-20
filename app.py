@@ -14,10 +14,14 @@ class BankingApp:
         self.master.geometry("450x520")
         self.master.configure(bg='teal')
         self.create_registration_gui()
+        self.master.resizable(False, False)
+
 
     def create_registration_gui(self):
         self.clear_gui()
         self.master.geometry("450x520")
+        self.master.resizable(False, False)
+
 
         image = Image.open("images/banklogo5.png")
         self.logo_image = ImageTk.PhotoImage(image)
@@ -27,7 +31,6 @@ class BankingApp:
         heading = tk.Label(self.master, text="Welcome to TechVault\nYour #1 banking app", bg='teal', fg='white',
                            font=("Arial", 16, "underline"))
         heading.grid(row=1, column=0, columnspan=3, pady=(40, 10), padx=(10, 10))
-
 
         self.label_username = tk.Label(self.master, text="Username:", bg='teal', fg='white', font=("Arial", 12))
         self.label_username.grid(row=2, column=0, padx=80, pady=10)
@@ -63,10 +66,12 @@ class BankingApp:
 
     def show_login_gui(self):
         self.create_login_gui()
+        self.master.resizable(False, False)
 
     def create_login_gui(self):
         for widget in self.master.winfo_children():
             widget.grid_forget()
+            self.master.resizable(False, False)
 
         self.master.configure(bg='teal')
 
@@ -109,6 +114,7 @@ class BankingApp:
         age = self.entry_age.get()
         gender = self.gender_var.get()
         email = self.entry_email.get()
+        self.master.resizable(False, False)
 
         if not (username and age and gender and email):
             messagebox.showerror("Error", "Please enter all the fields.")
@@ -117,6 +123,11 @@ class BankingApp:
         if not age.isdigit():
             messagebox.showerror("Invalid Input", "Age must be a number.")
             return
+
+        if int(age) < 18:
+            messagebox.showerror("Invalid Input", "You must be 18 or older to register.")
+            return
+
         if not re.match(r"[^@]+@[^@]+\.[^@]+", email):
             messagebox.showerror("Invalid Input", "Invalid email format.")
             return
@@ -144,6 +155,7 @@ class BankingApp:
     def login_user(self):
         username = self.entry_username_login.get()
         password = self.entry_password_login.get()
+        self.master.resizable(False, False)
 
         with open("BankData.txt", "r") as file:
             for line in file:
@@ -158,7 +170,7 @@ class BankingApp:
         self.transaction_choice_window = tk.Toplevel(self.master)
         self.transaction_choice_window.title("Transaction Choice")
         self.transaction_choice_window.configure(bg='teal')
-
+        self.master.resizable(False, False)
 
         label = tk.Label(self.transaction_choice_window, text="Would you like to make a transaction?", bg='teal',
                          fg='white', font=("Arial", 12))
@@ -175,6 +187,7 @@ class BankingApp:
 
     def create_transaction_gui(self):
         self.clear_gui()
+        self.master.resizable(False, False)
         self.transaction_choice_window.destroy()
         for widget in self.master.winfo_children():
             widget.grid_forget()
@@ -207,6 +220,7 @@ class BankingApp:
 
         self.master.configure(bg='teal')
         self.master.geometry("300x300")
+        self.master.resizable(False, False)
 
         image = Image.open("images/banklogo5.png")
         self.logo_image = ImageTk.PhotoImage(image)
@@ -248,6 +262,7 @@ class BankingApp:
         self.transaction_window = tk.Toplevel(self.master)
         self.transaction_window.title("Transaction")
         self.transaction_window.configure(bg='teal')
+        self.master.resizable(False, False)
 
         label = tk.Label(self.transaction_window, text="Choose transaction type:", bg='teal', fg='white',
                          font=("Arial", 12))
@@ -261,7 +276,7 @@ class BankingApp:
 
     def deposit_gui(self):
         self.transaction_window.destroy()
-
+        self.master.resizable(False, False)
         self.deposit_window = tk.Toplevel(self.master)
         self.deposit_window.title("Deposit")
         self.deposit_window.configure(bg='teal')
@@ -277,7 +292,7 @@ class BankingApp:
 
     def withdraw_gui(self):
         self.transaction_window.destroy()
-
+        self.master.resizable(False, False)
         self.withdraw_window = tk.Toplevel(self.master)
         self.withdraw_window.title("Withdraw")
         self.withdraw_window.configure(bg='teal')
@@ -307,7 +322,7 @@ class BankingApp:
         try:
             amount = float(self.entry_withdraw.get())
             if amount <= 0:
-                raise ValueError("Withdrawal amount must be positive.")
+                raise ValueError("Enter valid amount.")
             if amount > self.balance:
                 raise ValueError("Insufficient balance.")
             self.update_balance(-amount)
@@ -317,6 +332,7 @@ class BankingApp:
             messagebox.showerror("Invalid Input", str(e))
 
     def update_balance(self, amount):
+        self.master.resizable(False, False)
         with open("BankData.txt", "r+") as file:
             lines = file.readlines()
             for i, line in enumerate(lines):
