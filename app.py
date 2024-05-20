@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import messagebox, ttk
+from tkinter import messagebox, ttk, filedialog
 import datetime
 import random
 import string
@@ -158,7 +158,7 @@ class BankingApp:
             return
 
         account_number = ''.join(random.choices(string.digits, k=8))
-        special_characters = '!@#$%^&*()_+{}[]|\\;:\<>?'
+        special_characters = '#!@$%^&*()'
         password = ''.join(random.choices(string.ascii_letters + string.digits + special_characters, k=12))
 
         with open("BankData.txt", "a") as file:
@@ -408,10 +408,24 @@ class BankingApp:
                     tree.insert("", "end", values=(
                         date.strip(), "Deposit" if "Deposit" in transaction else "Withdrawal", amount.strip()))
                 tree.pack(expand=True, fill="both")
+
+                download_button = tk.Button(statement_window, text="Download Transaction History", font=('Calibri', 12),
+                                        command=lambda: self.download_transactions(statement))
+                download_button.pack(pady=10)
+
             else:
                 messagebox.showerror("Error", "No transactions found.")
         except FileNotFoundError:
             messagebox.showerror("Error", "No transactions found.")
+
+    def download_transactions(self, transactions):
+        download_location = filedialog.asksaveasfilename(defaultextension=".txt", filetypes=[("Text files", "*.txt")])
+
+        if download_location:
+            with open(download_location, "w") as file:
+                file.writelines(transactions)
+            messagebox.showinfo("Success", "Transaction history downloaded successfully.")
+
 
     def clear_gui(self):
         for widget in self.master.winfo_children():
