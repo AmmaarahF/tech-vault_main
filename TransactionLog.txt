@@ -52,3 +52,12 @@ Username: Dilly, 2024-05-17 13:09:38.017319: Deposit of R50225.00
 Username: Dilly, 2024-05-17 14:08:54.540138: Withdrawal of R200.00
 Username: Fieka, 2024-05-19 20:25:38.597551: Deposit of R100.00
 Username: Fieka, 2024-05-19 20:26:03.628665: Deposit of R400.00
+Username: Me, 2024-05-20 14:59:51.637453: Deposit of R500.00
+Username: Fieka, 2024-05-20 19:50:53.713812: Withdrawal of R200.00
+Username: Fieka, 2024-05-20 19:51:08.363200: Deposit of R200.00
+Username: kok, 2024-05-23 11:57:50.533208: Deposit of R20.00
+Username: kok, 2024-05-23 11:57:58.734940: Withdrawal of R10.00
+Username: Aya, 2024-05-23 13:18:53.085851: Deposit of R100.00
+Username: Aya, 2024-05-23 13:19:27.746296: Withdrawal of R50.00
+Username: Aya, 2024-05-23 13:20:13.922637: Withdrawal of R50.00
+Username: Aya, 2024-05-23 13:20:32.804763: Deposit of R1000.00

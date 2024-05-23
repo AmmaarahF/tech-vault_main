@@ -21,52 +21,52 @@ class BankingApp:
         self.master.geometry("450x520")
         self.master.resizable(False, False)
 
-        # Load the logo image
-        image = Image.open("images/banklogo5.png")
+        container_frame = tk.Frame(self.master, bg='#D9D9D9', bd=2, relief='solid')
+        container_frame.place(relx=0.5, rely=0.5, anchor='center', width=400, height=500)
+
+        image = Image.open("images/logo.png")
         self.logo_image = ImageTk.PhotoImage(image)
 
-        # Create the logo placeholder
-        self.logo_placeholder = tk.Label(self.master, image=self.logo_image, bg='teal')
-        self.logo_placeholder.grid(row=0, column=0, columnspan=3, pady=(5, 0), sticky='n')
+        self.logo_placeholder = tk.Label(self.master, image=self.logo_image, bg='#D9D9D9')
+        self.logo_placeholder.grid(row=0, column=0, columnspan=3, pady=(40, 0), sticky='n')
 
-        # Create the heading label
-        heading = tk.Label(self.master, text="Welcome to TechVault\nYour #1 banking app", bg='teal', fg='white',
+        heading = tk.Label(self.master, text="Welcome to TechVault\nYour #1 banking app", bg='#D9D9D9', fg='teal',
                            font=("Arial", 12, "bold"))
         heading.grid(row=1, column=0, columnspan=3, pady=(5, 10), sticky='n')
 
-        self.label_username = tk.Label(self.master, text="Username:", bg='teal', fg='white', font=("Arial", 12))
+        self.label_username = tk.Label(self.master, text="Username:", bg='#D9D9D9', fg='teal', font=("Arial", 12))
         self.label_username.grid(row=2, column=0, padx=10, pady=10, sticky='e')
         self.entry_username = tk.Entry(self.master)
         self.entry_username.grid(row=2, column=1, sticky='w')
 
-        self.label_age = tk.Label(self.master, text="Age:", bg='teal', fg='white', font=("Arial", 12))
+        self.label_age = tk.Label(self.master, text="Age:", bg='#D9D9D9', fg='teal', font=("Arial", 12))
         self.label_age.grid(row=3, column=0, padx=10, pady=10, sticky='e')
         self.entry_age = tk.Entry(self.master)
         self.entry_age.grid(row=3, column=1, sticky='w')
 
-        self.label_gender = tk.Label(self.master, text="Gender:", bg='teal', fg='white', font=("Arial", 12))
+        self.label_gender = tk.Label(self.master, text="Gender:", bg='#D9D9D9', fg='teal', font=("Arial", 12))
         self.label_gender.grid(row=4, column=0, padx=10, pady=10, sticky='e')
 
-        # Create a frame to hold the radio buttons
-        gender_frame = tk.Frame(self.master, bg='teal')
+
+        gender_frame = tk.Frame(self.master, bg='#D9D9D9')
         gender_frame.grid(row=4, column=1, columnspan=2, sticky='w')
 
         self.gender_var = tk.StringVar()
         self.gender_var.set("Male")
-        self.radio_male = tk.Radiobutton(gender_frame, text="Male", variable=self.gender_var, value="Male", bg='teal',
-                                         fg='black')
+        self.radio_male = tk.Radiobutton(gender_frame, text="Male", variable=self.gender_var, value="Male", bg='#D9D9D9',
+                                         fg='teal')
         self.radio_male.pack(side='left')
         self.radio_female = tk.Radiobutton(gender_frame, text="Female", variable=self.gender_var, value="Female",
-                                           bg='teal', fg='black')
+                                           bg='#D9D9D9', fg='teal')
         self.radio_female.pack(side='left', padx=(10, 0))
 
-        self.label_email = tk.Label(self.master, text="Email:", bg='teal', fg='white', font=("Arial", 12))
+        self.label_email = tk.Label(self.master, text="Email:", bg='#D9D9D9', fg='teal', font=("Arial", 12))
         self.label_email.grid(row=5, column=0, padx=10, pady=10, sticky='e')
         self.entry_email = tk.Entry(self.master)
         self.entry_email.grid(row=5, column=1, sticky='w')
 
-        # Create a frame to hold the buttons
-        button_frame = tk.Frame(self.master, bg='teal')
+
+        button_frame = tk.Frame(self.master, bg='#D9D9D9')
         button_frame.grid(row=6, column=0, columnspan=3, pady=10)
 
         self.register_button = tk.Button(button_frame, text="Register", command=self.register_user)
@@ -75,7 +75,6 @@ class BankingApp:
         self.login_button = tk.Button(button_frame, text="Login", command=self.show_login_gui)
         self.login_button.pack(side='left', padx=10)
 
-        # Adjust column configurations for better alignment
         self.master.grid_columnconfigure(0, weight=1)
         self.master.grid_columnconfigure(1, weight=1)
         self.master.grid_columnconfigure(2, weight=1)
@@ -91,32 +90,31 @@ class BankingApp:
 
         self.master.configure(bg='teal')
 
-        image = Image.open("images/banklogo5.png")
+        image = Image.open("images/logo.png")
         self.logo_image = ImageTk.PhotoImage(image)
-        self.logo_placeholder = tk.Label(self.master, image=self.logo_image, bg='teal')
-        self.logo_placeholder.grid(row=0, column=0, columnspan=3, padx=(90, 90), pady=(10, 10))
+        self.logo_placeholder = tk.Label(self.master, image=self.logo_image, bg='#D9D9D9')
+        self.logo_placeholder.grid(row=0, column=0, columnspan=3, pady=(40, 0), sticky='n')
 
-        heading = tk.Label(self.master, text="Login to TechVault", bg='teal', fg='white',
+        heading = tk.Label(self.master, text="Login to TechVault", bg='#D9D9D9', fg='teal',
                            font=("Arial", 16, "bold"))
         heading.grid(row=1, column=0, columnspan=2, padx=110, pady=10)
 
-        self.label_username_login = tk.Label(self.master, text="Username:", bg='teal', fg='white', font=("Arial", 12))
-        self.label_username_login.grid(row=2, column=0, padx=(10, 2), pady=10, sticky='e')  # Reduced padx
+        self.label_username_login = tk.Label(self.master, text="Username:", bg='#D9D9D9', fg='teal', font=("Arial", 12))
+        self.label_username_login.grid(row=2, column=0, padx=(10, 2), pady=10, sticky='e')
         self.entry_username_login = tk.Entry(self.master)
-        self.entry_username_login.grid(row=2, column=1, padx=(2, 50))  # Adjusted padx to move it to the left
+        self.entry_username_login.grid(row=2, column=1, padx=(2, 50))
 
-        self.label_password_login = tk.Label(self.master, text="Password:", bg='teal', fg='white', font=("Arial", 12))
-        self.label_password_login.grid(row=3, column=0, padx=(10, 2), pady=10, sticky='e')  # Reduced padx
+        self.label_password_login = tk.Label(self.master, text="Password:", bg='#D9D9D9', fg='teal', font=("Arial", 12))
+        self.label_password_login.grid(row=3, column=0, padx=(10, 2), pady=10, sticky='e')
         self.entry_password_login = tk.Entry(self.master, show="*")
-        self.entry_password_login.grid(row=3, column=1, padx=(2, 50))  # Adjusted padx to move it to the left
+        self.entry_password_login.grid(row=3, column=1, padx=(2, 50))
 
         self.show_password_var = tk.BooleanVar()
         self.show_password_checkbox = tk.Checkbutton(self.master, text="Show Password", variable=self.show_password_var,
                                                      command=self.toggle_password_visibility)
         self.show_password_checkbox.grid(row=4, column=0, columnspan=2, pady=5)
 
-        # Create a frame to hold the buttons
-        button_frame = tk.Frame(self.master, bg='teal')
+        button_frame = tk.Frame(self.master, bg='#D9D9D9')
         button_frame.grid(row=5, column=0, columnspan=2, pady=10)
 
         self.login_button = tk.Button(button_frame, text="Login", command=self.login_user)
@@ -125,7 +123,7 @@ class BankingApp:
         self.back_button = tk.Button(button_frame, text="Back", command=self.create_registration_gui)
         self.back_button.pack(side='left', padx=10)
 
-        # Adjust column configurations for better alignment
+
         self.master.grid_columnconfigure(0, weight=1)
         self.master.grid_columnconfigure(1, weight=1)
         self.master.grid_columnconfigure(2, weight=1)
@@ -258,7 +256,7 @@ class BankingApp:
 
         self.show_details_button = tk.Button(self.master, text="Show Personal Details",
                                              command=self.show_personal_details)
-        self.show_details_button.grid(row=1, column=0, columnspan=2, padx=100, pady=10)
+        self.show_details_button.grid(row=1, column=0, columnspan=2, padx=90, pady=10)
 
         self.back_button = tk.Button(self.master, text="Back", command=self.create_registration_gui)
         self.back_button.grid(row=6, column=0, columnspan=2, pady=10)

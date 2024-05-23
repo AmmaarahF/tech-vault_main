@@ -22,3 +22,7 @@ Username: Dil, Age: 26, Gender: Female, Email: sef@ygy.com, Account Number: 2722
 Username: some, Age: 21, Gender: Male, Email: cdc@tv.com, Account Number: 00624348, Password: +Pz|Mj$>sJ4K, Balance: R300.00
 Username: idk, Age: 20, Gender: Male, Email: cgfc@rdc.com, Account Number: 11880278, Password: kBoF{&Whnw@Z, Balance: R180.0
 Username: hb, Age: 2, Gender: Male, Email: hgjhg@tfg.com, Account Number: 18126604, Password: M(%q1JVd{]OL, Balance: R0.00
+Username: Me, Age: 18, Gender: Female, Email: x@r.com, Account Number: 20283725, Password: 1t4SXpjjBUWL, Balance: R500.00
+Username: kok, Age: 25, Gender: Male, Email: jhkjh@yr.com, Account Number: 50279934, Password: @L$)MYq@!lyj, Balance: R10.00
+Username: Aya, Age: 55, Gender: Male, Email: aya@gmail.com, Account Number: 16416029, Password: x(kwR8kiF^RY, Balance: R1000.00
+
