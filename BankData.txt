@@ -26,3 +26,4 @@ Username: Me, Age: 18, Gender: Female, Email: x@r.com, Account Number: 20283725,
 Username: kok, Age: 25, Gender: Male, Email: jhkjh@yr.com, Account Number: 50279934, Password: @L$)MYq@!lyj, Balance: R10.00
 Username: Aya, Age: 55, Gender: Male, Email: aya@gmail.com, Account Number: 16416029, Password: x(kwR8kiF^RY, Balance: R1000.00
 
+Username: Pearl, Age: 29, Gender: Female, Email: mpumisenge@gmail.com, Account Number: 22391513, Password: opb0hcCRbm*T, Balance: R0.00

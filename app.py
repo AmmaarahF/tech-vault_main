@@ -15,6 +15,10 @@ class BankingApp:
         self.master.configure(bg='teal')
         self.create_registration_gui()
         self.master.resizable(False, False)
+        
+    def clear_gui(self):
+        for widget in self.master.winfo_children():
+            widget.destroy()    
 
     def create_registration_gui(self):
         self.clear_gui()
@@ -64,10 +68,18 @@ class BankingApp:
         self.label_email.grid(row=5, column=0, padx=10, pady=10, sticky='e')
         self.entry_email = tk.Entry(self.master)
         self.entry_email.grid(row=5, column=1, sticky='w')
+        
+        self.label_account_type = tk.Label(self.master, text="Account Type:", bg='#D9D9D9', fg='teal', font=("Arial", 12))
+        self.label_account_type.grid(row=6, column=0, padx=10, pady=10, sticky='e')
+
+        self.account_type_var = tk.StringVar()
+        self.account_type_var.set("Savings")
+        self.account_type_menu = ttk.Combobox(self.master, textvariable=self.account_type_var, values=["Savings", "Checking", "Business"])
+        self.account_type_menu.grid(row=6, column=1, sticky='w')
 
 
         button_frame = tk.Frame(self.master, bg='#D9D9D9')
-        button_frame.grid(row=6, column=0, columnspan=3, pady=10)
+        button_frame.grid(row=7, column=0, columnspan=3, pady=10)
 
         self.register_button = tk.Button(button_frame, text="Register", command=self.register_user)
         self.register_button.pack(side='left', padx=10)
@@ -84,8 +96,7 @@ class BankingApp:
         self.master.resizable(False, False)
 
     def create_login_gui(self):
-        for widget in self.master.winfo_children():
-            widget.grid_forget()
+        self.clear_gui()
         self.master.resizable(False, False)
 
         self.master.configure(bg='teal')
@@ -137,9 +148,10 @@ class BankingApp:
         age = self.entry_age.get()
         gender = self.gender_var.get()
         email = self.entry_email.get()
-        self.master.resizable(False, False)
+        account_type = self.account_type_var.get()
+        
 
-        if not (username and age and gender and email):
+        if not (username and age and gender and email and account_type):
             messagebox.showerror("Error", "Please enter all the fields.")
             return
 
@@ -227,17 +239,24 @@ class BankingApp:
         self.label_balance.grid(row=1, column=0, padx=100, pady=10)
 
         button_width = 20  # Set a fixed width for the buttons
-
+        
+       
         self.transaction_button = tk.Button(self.master, text="Make a Transaction", command=self.prompt_transaction,
                                             width=button_width)
-        self.transaction_button.grid(row=2, column=0, columnspan=2, padx=100, pady=10)
+        self.transaction_button.grid(row=3, column=0, columnspan=2, padx=100, pady=10)
 
         self.bank_statement_button = tk.Button(self.master, text="Bank Statement", command=self.show_bank_statement,
                                                width=button_width)
-        self.bank_statement_button.grid(row=3, column=0, columnspan=2, padx=100, pady=10)
+        self.bank_statement_button.grid(row=4, column=0, columnspan=2, padx=100, pady=10)
+        
+        self.personal_details_button = tk.Button(self.master, text="Personal Details", command=self.show_personal_details_gui,
+                                                  width=button_width)
+        self.personal_details_button.grid(row=5, column=0, columnspan=2, padx=100, pady=10)
 
         self.back_button = tk.Button(self.master, text="Back", command=self.create_registration_gui)
         self.back_button.grid(row=6, column=0, columnspan=2, pady=10)
+        
+        
 
     def show_personal_details_gui(self):
         self.clear_gui()
@@ -257,21 +276,25 @@ class BankingApp:
         self.show_details_button = tk.Button(self.master, text="Show Personal Details",
                                              command=self.show_personal_details)
         self.show_details_button.grid(row=1, column=0, columnspan=2, padx=90, pady=10)
+        
+        self.edit_details_button = tk.Button(self.master, text="Edit Personal Details", command=self.edit_personal_details_gui)
+        self.edit_details_button.grid(row=2, column=0, columnspan=2, padx=90, pady=10)
 
         self.back_button = tk.Button(self.master, text="Back", command=self.create_registration_gui)
         self.back_button.grid(row=6, column=0, columnspan=2, pady=10)
 
-    def show_personal_details(self):
+    '''def show_personal_details(self):
         with open("BankData.txt", "r") as file:
             for line in file:
                 if f"Username: {self.username}, " in line:
                     data = line.strip().split(", ")
                     details = {
                         "Username": data[0].split(": ")[1],
-                        "Account Number": data[4].split(": ")[1],
                         "Age": data[1].split(": ")[1],
+                        "Gender": data[2].split(": ")[1],
                         "Email": data[3].split(": ")[1],
-                        "Gender": data[2].split(": ")[1]
+                        "Account Number": data[4].split(": ")[1],
+                        "Account Type": data[5].split(": ")[1]
                     }
 
         details_window = tk.Toplevel(self.master)
@@ -284,6 +307,95 @@ class BankingApp:
         for key, value in details.items():
             tree.insert("", "end", values=(key, value))
         tree.pack(expand=True, fill="both")
+        
+    def edit_personal_details_gui(self):
+        self.clear_gui()
+        for widget in self.master.winfo_children():
+            widget.grid_forget()
+
+        self.master.configure(bg='teal')
+        self.master.geometry("400x400")
+        self.master.resizable(False, False)
+
+        with open("BankData.txt", "r") as file:
+            for line in file:
+                if f"Username: {self.username}, " in line:
+                    data = line.strip().split(", ")
+                    details = {
+                        "Username": data[0].split(": ")[1],
+                        "Age": data[1].split(": ")[1],
+                        "Gender": data[2].split(": ")[1],
+                        "Email": data[3].split(": ")[1],
+                        "Account Number": data[4].split(": ")[1],
+                        "Account Type": data[5].split(": ")[1]
+                    }
+
+        self.username_entry = tk.Entry(self.master)
+        self.username_entry.insert(0, details["Username"])
+        self.username_entry.grid(row=0, column=1)
+
+        self.age_entry = tk.Entry(self.master)
+        self.age_entry.insert(0, details["Age"])
+        self.age_entry.grid(row=1, column=1)
+
+        self.email_entry = tk.Entry(self.master)
+        self.email_entry.insert(0, details["Email"])
+        self.email_entry.grid(row=2, column=1)
+
+        self.gender_var = tk.StringVar(value=details["Gender"])
+        self.gender_menu = ttk.Combobox(self.master, textvariable=self.gender_var, values=["Male", "Female"])
+        self.gender_menu.grid(row=3, column=1)
+
+        self.account_type_var = tk.StringVar(value=details["Account Type"])
+        self.account_type_menu = ttk.Combobox(self.master, textvariable=self.account_type_var, values=["Savings", "Checking", "Business"])
+        self.account_type_menu.grid(row=4, column=1)
+
+        self.save_button = tk.Button(self.master, text="Save", command=self.save_personal_details)
+        self.save_button.grid(row=5, column=0, columnspan=2)
+
+        self.back_button = tk.Button(self.master, text="Back", command=self.show_personal_details_gui)
+        self.back_button.grid(row=6, column=0, columnspan=2)
+
+def save_personal_details(self):
+    new_username = self.username_entry.get()
+    new_age = self.age_entry.get()
+    new_email = self.email_entry.get()
+    new_gender = self.gender_var.get()
+    new_account_type = self.account_type_var.get()
+
+    if not (new_username and new_age and new_email and new_gender and new_account_type):
+        messagebox.showerror("Error", "Please fill in all the fields.")
+        return
+
+    if not new_age.isdigit() or int(new_age) < 18:
+        messagebox.showerror("Error", "Invalid age.")
+        return
+
+    if not re.match(r"[^@]+@[^@]+\.[^@]+", new_email):
+        messagebox.showerror("Error", "Invalid email format.")
+        return
+
+    new_lines = []
+    with open("BankData.txt", "r") as file:
+        for line in file:
+            if f"Username: {self.username}, " in line:
+                data = line.strip().split(", ")
+                account_number = data[4].split(": ")[1]
+                password = data[6].split(": ")[1]
+                balance = data[7].split(": ")[1]
+                new_line = f"Username: {new_username}, Age: {new_age}, Gender: {new_gender}, Email: {new_email}, Account Type: {new_account_type}, Account Number: {account_number}, Password: {password}, Balance: {balance}\n"
+                new_lines.append(new_line)
+            else:
+                new_lines.append(line)
+
+    with open("BankData.txt", "w") as file:
+        for line in new_lines:
+            file.write(line)
+
+    self.username = new_username
+    messagebox.showinfo("Success", "Details updated successfully.")
+    self.show_personal_details_gui()
+'''
 
     def prompt_transaction(self):
         self.transaction_window = tk.Toplevel(self.master)

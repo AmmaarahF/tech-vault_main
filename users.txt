@@ -1,0 +1,1 @@
+{'username': 'Thakgi', 'age': 23, 'gender': 'Male', 'email': 'mpumisenge@gmail.com', 'account_type': 'Savings', 'password': '^cgd^"9.', 'account_number': '6693657351', 'balance': 80.0, 'transactions': ['Deposit: 100.0 at 2024-07-15 12:42:47.529221', 'Withdrawal: 20.0 at 2024-07-15 12:42:59.992975']}
